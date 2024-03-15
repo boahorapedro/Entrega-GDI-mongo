@@ -1,11 +1,23 @@
 use("mercado-db")
 
 db.produtos.insertMany([
-    { nome: "Arroz", preco: 5.99, categoria: "Grãos", descricao: "1kg de arroz", corredor: 1, areas: ["Grãos e Cereais", "Padaria"] },
-    { nome: "Feijão", preco: 4.50, categoria: "Grãos", descricao: "1kg de feijão", corredor: 2, areas: ["Grãos e Cereais", "Padaria"] },
-    { nome: "Leite", preco: 3.50, categoria: "Laticínios", descricao: "500 ml de leite", corredor: 3, areas: ["Frios"] },
-    { nome: "Maçã", preco: 2.99, categoria: "Frutas", descricao: "1 maçã", corredor: 4, areas: ["Frutas e Verduras"] },
-    { nome: "Pão", preco: 1.99, categoria: "Padaria", descricao: "3 unidades de pão", corredor: 5, areas: ["Frios"] }
+    { nome: "Arroz", preco: 5.99, categoria: "Grãos", descricao: "1kg de arroz", corredor: 1, area: ["Grãos e Cereais"] },
+    { nome: "Feijão", preco: 4.50, categoria: "Grãos", descricao: "1kg de feijão", corredor: 2, area: ["Grãos e Cereais"] },
+    { nome: "Leite", preco: 3.50, categoria: "Laticínios", descricao: "500 ml de leite", corredor: 3, area: ["Frios"] },
+    { nome: "Maçã", preco: 2.99, categoria: "Frutas", descricao: "1 maçã", corredor: 4, area: ["Frutas e Verduras"] },
+    { nome: "Pão", preco: 1.99, categoria: "Padaria", descricao: "3 unidades de pão", corredor: 5, area: ["Frios"] },
+    { nome: "Biscoito", preco: 1.50, categoria: "Guloseimas", descricao: "um pacote de biscoito", corredor: 6, area: ["lanches"]},
+    { nome: "Bolacha", preco: 2.00, categoria: "Guloseimas", descricao: "um pacote de bolacha", corredor: 6, area: ["lanches"]},
+    { nome: "Hambuguer congelado", preco: 9.99, categoria: "Carnes congeladas", descricao: "Hamburguers congelados 3 unidades", corredor: 10, areas: ["Frios", "Açougue"] },
+    { nome: "Barra de chocolate", preco: 5.00, categoria: "Guloseimas", descricao: "uma barra de chocolate 300 g", corredor: 6, area: ["lanches"]},
+    { nome: "Detergente ", preco: 2.20, categoria: "Produtos de limpeza", descricao: "detergente de lavar louça", corredor: 7, area: ["Higiene"]},
+    { nome: "Refrigerante", preco: 5.00, categoria: "Bebida gaseificada", descricao: "Garraga de 1 L", corredor: 7, area: ["Bebidas"]},
+    { nome: "Bala Fini", preco: 1.25, categoria: "Doce", descricao: "Embalagem de 100g", corredor: 5, area: ["Lanches"]},
+    { nome: "Pêras congeladas", preco: 2.99, categoria: "Frutas", descricao: "Pêra congelada em pedaços", corredor: 4, areas: ["Frios", "Frutas e Verduras"]}, 
+    { nome: "Vassoura", preco: 14.99, categoria: "Higiene", descricao: "Vassoura com cabo removível", corredor: 8, areas: ["Higiene"]},
+    { nome: "Torta de morango", preco: 7.99, categoria: "Guloseimas", descricao: "Fatia de torta de morango", corredor: 14, areas: ["Padaria"]}
+
+
 ]);
 
 db.areasEspecificas.insertMany([
@@ -14,7 +26,12 @@ db.areasEspecificas.insertMany([
     { nome: "Bebidas", descricao: "Variedade de bebidas alcoólicas e não alcoólicas", localizacao: "Setor Leste" },
     { nome: "Frutas e Verduras", descricao: "Produtos frescos e sazonais", localizacao: "Setor Oeste" },
     { nome: "Grãos e Cereais", descricao: "Diversidade de grãos e cereais", localizacao: "Setor Central" },
-    { nome: "Padaria", descricao: "Padaria", localizacao: "Setor Central" }
+    { nome: "Padaria", descricao: "Padaria", localizacao: "Setor Central" },
+    { nome: "Frutas e Verduras", descricao: "Produtos frescos e sazonais", localizacao: "Setor Oeste" },
+    { nome: "Grãos e Cereais", descricao: "Diversidade de grãos e cereais", localizacao: "Setor Central" },
+    { nome: "Padaria", descricao: "Padaria", localizacao: "Setor Central" },
+    { nome: "Açougue", descricao: "Carnes do estabelecimento", localizacao: "Setor Norte" }, 
+    { nome: "Lanches", descricao: "Guloseimas", localizacao: "Setor Leste" }
 ]);
 
 db.vendas.insertMany([
@@ -22,58 +39,77 @@ db.vendas.insertMany([
     { produto: "Leite", quantidade: 5, preco: 3.50, data: "2024-03-13", corredor: 3 },
     { produto: "Maçã", quantidade: 8, preco: 2.99, data: "2024-03-13", corredor: 4 },
     { produto: "Pão", quantidade: 3, preco: 1.99, data: "2024-03-13", corredor: 5 },
-    { produto: "Feijão", quantidade: 4, preco: 4.50, data: "2024-03-13", corredor: 2 }
+    { produto: "Feijão", quantidade: 4, preco: 4.50, data: "2024-03-13", corredor: 2 },
+    { produto: "Biscoito", quantidade: 6, preco: 1.50, data: "2024-03-14", corredor: 4 },
+    { produto: "Bolacha", quantidade: 1, preco: 2.00, data: "2024-03-15", corredor: 18 },
+    { produto: "barra de Chocolate", quantidade: 3, preco: 5.00, data: "2024-03-15", corredor: 17},
+    { produto: "Bala Fini", quantidade: 5, preco: 1.25, data: "2024-03-15", corredor: 17 },
+    { produto: "Detergente", quantidade: 10, preco: 2.20, data: "2024-02-15", corredor: 9 }
+
 ]);
 
 db.corredores.insertMany([
     { codigo: 1, descricao: "Corredor de grãos", localizacao: "Ala Norte" },
-    { codigo: 2, descricao: "Corredor de enlatados", localizacao: "Ala Sul" },
+    { codigo: 2, descricao: "Corredor de cereais", localizacao: "Ala Norte" },
     { codigo: 3, descricao: "Corredor de laticínios", localizacao: "Ala Leste" },
     { codigo: 4, descricao: "Corredor de frutas", localizacao: "Ala Oeste" },
-    { codigo: 5, descricao: "Corredor de padaria", localizacao: "Ala Central" }
+    { codigo: 5, descricao: "Corredor de verduras", localizacao: "Ala Oeste" },
+    { codigo: 6, descricao: "Corredor de pães e salgados", localizacao: "Ala Central" },
+    { codigo: 7, descricao: "Corredor de higiene pessoal", localizacao: "Ala Sul" },
+    { codigo: 8, descricao: "Corredor de material de casa", localizacao: "Ala Sul" },
+    { codigo: 9, descricao: "Corredor de limpeza doméstica", localizacao: "Ala Sul" },
+    { codigo: 10, descricao: "Corredor de carnes vermelhas", localizacao: "Ala Norte" },
+    { codigo: 11, descricao: "Corredor de bebidas gaseificadas", localizacao: "Ala Sul" },
+    { codigo: 12, descricao: "Corredor de bebidas alcoólicas", localizacao: "Ala Sul" },
+    { codigo: 13, descricao: "Corredor de bebidas quentes", localizacao: "Ala Sul" },
+    { codigo: 14, descricao: "Corredor de bolos e tortas", localizacao: "Ala Central" },
+    { codigo: 15, descricao: "Corredor de carnes brancas", localizacao: "Ala Norte" },
+    { codigo: 16, descricao: "Corredor de comidas prontas", localizacao: "Ala Leste" },
+    { codigo: 17, descricao: "Corredor de doces", localizacao: "Ala Leste" },
+    { codigo: 18, descricao: "Corredor de salgados", localizacao: "Ala Leste" }
 ]);
 
 // Encontrar todos os produtos na categoria "Grãos"
-db.produtos.find({ categoria: "Grãos" });
+db.produtos.find({ categoria: "Grãos" });  //ok
 
-// Encontrar produtos que tenham pelo menos 5 itens em estoque
-db.vendas.find({ "extras": { $size: 1 } });
+// Encontrar produtos que tenham pelo menos 5 itens em estoque 
+db.vendas.find({ "extras": { $size: 1 } });    //ok
 
 // Agregar vendas por corredor e calcular o total de vendas em cada corredor
 db.vendas.aggregate([
-    { $group: { _id: "$corredor", totalVendas: { $sum: "$preco" } } }
+    { $group: { _id: "$corredor", totalVendas: { $sum: "$preco" } } }  //ok
 ]);
 // Correspondência de vendas com preço superior a 3.00
-db.vendas.find({ preco: { $gt: 3.00 } });
+db.vendas.find({ preco: { $gt: 3.00 } });  //ok
 
 // Correspondência categoras de frutas
-db.produtos.aggregate({ $match: { categoria: "Frutas" } });
+db.produtos.aggregate({ $match: { categoria: "Frutas" } }); //ok
 
 // Projeto para retornar apenas o nome e preço do produto
 db.produtos.aggregate([
-    { $project: { nome: 1, preco: 1 } }
+    { $project: { nome: 1, preco: 1 } }  //ok
 ]);
 
 // Encontrar produtos com preço maior ou igual a 5.00
-db.produtos.find({ preco: { $gte: 5.00 } });
+db.produtos.find({ preco: { $gte: 5.00 } });  //ok
 
 // Contar o número total de vendas
-db.vendas.countDocuments();
+db.vendas.countDocuments();  //ok
 
 // Encontrar o preço máximo de um produto
-db.produtos.aggregate([{ $group: { _id: null, maxPrice: { $max: "$preco" } } }]);
+db.produtos.aggregate([{ $group: { _id: null, maxPrice: { $max: "$preco" } } }]); //ok
 
 // Calcular o preço médio dos produtos
-db.produtos.aggregate([{ $group: { _id: null, avgPrice: { $avg: "$preco" } } }]);
+db.produtos.aggregate([{ $group: { _id: null, avgPrice: { $avg: "$preco" } } }]); //ok 
 
 // Verificar se um produto específico existe
-db.produtos.find({ nome : { $exists: true } });
+db.produtos.find({ nome : { $exists: true } }); //ok
 
 // Ordenar produtos por preço em ordem decrescente
-db.produtos.find().sort({ preco: -1 });
+db.produtos.find().sort({ preco: -1 });      //ok
 
-// Limitar a consulta a 5 produtos
-db.produtos.find().limit(2);
+// Limitar a consulta a 2 produtos
+db.produtos.find().limit(2);  //ok
 
 // Consultar produtos com preço maior que a média
 var avgQuantity = db.vendas.aggregate([
@@ -88,26 +124,34 @@ var avgQuantity = db.vendas.aggregate([
 var vendasAcimaDaMedia = db.vendas.find({ quantidade: { $gt: avgQuantity } });
 vendasAcimaDaMedia.forEach(function(venda) {
     printjson(venda);
-});
+}); //ok
 // Retornar os documentos de produto de forma formatada
-db.produtos.find().pretty();
+db.produtos.find().pretty(); //ok
 
 // Encontrar produtos que pertencem a todas as categorias especificadas
-db.produtos.find({ areas: { $all: ["Grãos e Cereais", "Padaria"] } });
+db.produtos.find({ area: { $all: ["Frios", "Frutas e Verduras"] } }); //ok
 
 // Atualizar a localização de um corredor específico
-db.corredores.updateOne({ codigo: 1 }, { $set: { localizacao: "Area Norte" } });
+db.corredores.updateOne({ codigo: 1 }, { $set: { localizacao: "Area Norte" } });  //ok
 
 // Usar condicional para definir um campo com base em uma condição
 db.vendas.aggregate([
     { $project: { status: { $cond: { if: { $gte: ["$quantidade", 5] }, then: "Em Estoque", else: "Baixo Estoque" } } } }
-]);
+]);  //ok
 
 // Encontrar o primeiro produto na categoria "Laticínios"
-db.produtos.findOne({ categoria: "Laticínios" });
+db.produtos.findOne({ categoria: "Laticínios" });   //ok
 
 // // Adicionar um novo produto à lista de produtos vendidos
-db.vendas.updateOne({ produto: "Arroz" }, { $addToSet: { extras: "Sal" } });
+db.vendas.updateOne({ produto: "Arroz" }, { $addToSet: { extras: "Sal" } });  //ok
+
+// deletar varios cujos os nomes são os campos abaixo
+db.produtos.deleteMany({nome:"Vassoura"},{nome:"Torta de morango"})
+
+//deletar um documento baseado nos campos abaixo
+db.produtos.deleteOne({nome:"Bala Fini"})
+
+
 
 //Filtro de vendas
 db.produtos.aggregate([
@@ -119,19 +163,19 @@ db.produtos.aggregate([
             nome: 1,
             preco: 1,
             categoria: 1,
-            areas: {
+            area: {
                 $filter: {
-                    input: "$areas", // Array de áreas específicas
+                    input: "$area", // Array de áreas específicas
                     as: "area",
                     cond: { $eq: ["$$area", "Frios"] } // Condição de filtro
                 }
             }
         }
     }
-]);
+]);  //ok
 
 db.produtos.createIndex({ descricao: "text" });
-db.produtos.find({ $text: { $search: "arroz" } });
+db.produtos.find({ $text: { $search: "arroz" } });  //ok
 
 
 // Renomear a coleção Venda para Vendas
