@@ -75,9 +75,20 @@ db.produtos.find().sort({ preco: -1 });
 // Limitar a consulta a 5 produtos
 db.produtos.find().limit(2);
 
-// Consultar produtos com preço menor que a média
-db.produtos.find({ $where: "this.preco < (db.produtos.aggregate([{ $group: { _id: null, avgPrice: { $avg: '$preco' } } }]).toArray()[0].avgPrice)" });
+// Consultar produtos com preço maior que a média
+var avgQuantity = db.vendas.aggregate([
+    {
+        $group: {
+            _id: null,
+            avgQuantity: { $avg: "$quantidade" }
+        }
+    }
+]).toArray()[0].avgQuantity;
 
+var vendasAcimaDaMedia = db.vendas.find({ quantidade: { $gt: avgQuantity } });
+vendasAcimaDaMedia.forEach(function(venda) {
+    printjson(venda);
+});
 // Retornar os documentos de produto de forma formatada
 db.produtos.find().pretty();
 
