@@ -12,5 +12,5 @@ var reduceFunction = function(key, values) {
 };
 
 // Executar MapReduce
-db.Venda.mapReduce(mapFunction, reduceFunction, { out: "total_vendas" });
+db.Venda.mapReduce(mapFunction, reduceFunction, { out: "total_vendas" });  //ok
 
